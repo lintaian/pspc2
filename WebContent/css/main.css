@@ -2,3 +2,68 @@
 .hide {
 	display: none;
 }
+.ui-grid-a .left {
+	width: 60%;
+	overflow: hidden;
+}
+.ui-grid-a .right {
+	width: 40%;
+	text-align: right;
+}
+.ui-grid-a .right a { 
+	display: inline;
+}
+.ui-block-a .number,
+.ui-block-b .number,
+.ui-block-c .number {
+	width: 40px;
+	float: left;
+	background: rgb(148, 189, 221);
+	text-align: center;
+	margin: 2px 0 2px 5%;
+}
+.ui-block-a .score,
+.ui-block-b .score,
+.ui-block-c .score {
+	width: 40px;
+	float: left;
+	background: rgb(171, 227, 241);
+	text-align: center;
+	margin: 2px 0;
+}
+.listview .label {
+	width: 35%;
+	float: left;
+	text-align: right;
+	padding-right: 5%;
+}
+.listview .text {
+	width: 55%;
+	float: left;
+	padding-left: 5%;
+}
+.none-inline li,
+.none-inline li a {
+	overflow: auto!important;
+	white-space: normal!important;
+}
+.img {
+	max-height: 100%!important;
+	max-width: 100%!important;
+}
+.longitudinal-ul .ui-checkbox {
+	margin: -11px -16px -11px 0!important;
+}
+.longitudinal-ul .ui-li-divider .ui-checkbox {
+	margin: -7px -16px!important;
+}
+.longitudinal-ul .ui-li-divider .ui-checkbox label{
+	background-color: rgb(233,233,233);
+}
+.longitudinal-ul .ui-checkbox label{
+	background-color: rgb(255,255,255);
+	border: none;
+}
+.longitudinal-ul li {
+	margin-right: -16px!important;
+}

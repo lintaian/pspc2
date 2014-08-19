@@ -4,6 +4,30 @@
 		<jsp:param name="title" value="错题本"/>
 	</jsp:include>
 	<div class="content">
+		<ul data-role="listview" class="none-inline">
+		  <li data-role="list-divider">10以内的加减法</li>
+		  <li><a href="#wrongBookDetail" data-transition="slide">小明今年5岁，小红今年3岁，小明比小红大多少岁？</a></li>
+		  <li><a href="#wrongBookDetail" data-transition="slide"><img class="img" src="img/question1.png"></a></li>
+		  <li data-role="list-divider">10以内的加减法</li>
+		  <li><a href="#wrongBookDetail" data-transition="slide">小明今年5岁，小红今年3岁，小明比小红大多少岁？</a></li>
+		  <li><a href="#wrongBookDetail" data-transition="slide"><img class="img" src="img/question1.png"></a></li>
+		</ul>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>
+<div data-role="page" id="wrongBookDetail" class="hide">
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="错题本"/>
+	</jsp:include>
+	<div class="content">
+		<ul data-role="listview" class="none-inline">
+		  <li data-role="list-divider">题干</li>
+		  <li>小明今年5岁，小红今年3岁，小明比小红大多少岁？</li>
+		  <li data-role="list-divider">答案</li>
+		  <li>5-3=1</li>
+		  <li data-role="list-divider">正确答案</li>
+		  <li>5-3=2</li>
+		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

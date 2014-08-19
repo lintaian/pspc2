@@ -5,68 +5,161 @@
 	</jsp:include>
 	<div class="content">
 		<ul data-role="listview">
-		    <li><a href="#detailedTranscriptsExam">6月月考<span class="ui-li-count">335</span></a></li>
-		    <li><a href="#detailedTranscriptsExam">期中考试<span class="ui-li-count">400</span></a></li>
-		    <li><a href="#detailedTranscriptsExam">7月月考<span class="ui-li-count">500</span></a></li>
-		    <li><a href="#detailedTranscriptsExam">期末考试<span class="ui-li-count">550</span></a></li>
+		    <li data-role="list-divider">6月月考<span class="ui-li-count">398</span></li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left" title="6月月考语文asdfaecvdfadsfaefvcv"><span>语文</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">115</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left"><span>数学</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">143</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left"><span>英语</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">140</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
+		    <li data-role="list-divider">期末考试<span class="ui-li-count">380</span></li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left" title="6月月考语文asdfaecvdfadsfaefvcv"><span>语文</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">110</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left"><span>数学</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">140</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
+		    <li>
+		    	<div class="ui-grid-a">
+				  <div class="ui-block-a left"><span>英语</span></div>
+				  <div class="ui-block-b right">
+				  	<span class="ui-li-count">130</span>
+				  	<a href="#detailedTranscriptsDetail" title="成绩单" data-transition="slide">成绩单</a>
+				  	<a href="#detailedTranscriptsScore" title="分数图表" data-transition="slide">得分详情</a>
+				  </div>
+				</div>
+		    </li>
 		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>
-<div data-role="page" id="detailedTranscriptsExam" class="hide">
+<div data-role="page" id="detailedTranscriptsScore" class="hide">
 	<jsp:include page="/tpl/header.jsp" flush="true">
-		<jsp:param name="title" value="详细成绩单"/>
+		<jsp:param name="title" value="分数图表"/>
 	</jsp:include>
 	<div class="content">
 		<ul data-role="listview">
-		    <li>
-		    	<div class="ui-grid-a">
-				  <div class="ui-block-a"><span>6月月考语文asdfaecvdfadsfaefvcv</span></div>
-				  <div class="ui-block-b" style="text-align: right;">
-				  	<span class="ui-li-count">140</span>
-				  	<a href="#detailedTranscriptsDetail">a</a>&nbsp;
-				  	<a href="#detailedTranscriptsDetail" style="margin-right: 10px;">b</a>
-				  </div>
-				</div>
-		    </li>
-		    <li>
-		    	<div class="ui-grid-a">
-				  <div class="ui-block-a"><span>6月月考数学</span></div>
-				  <div class="ui-block-b" style="text-align: right;">
-				  	<span class="ui-li-count">140</span>
-				  	<a href="#detailedTranscriptsDetail">a</a>&nbsp;
-				  	<a href="#detailedTranscriptsDetail">b</a>
-				  </div>
-				</div>
-		    </li>
-		    <li>
-		    	<div class="ui-grid-a">
-				  <div class="ui-block-a"><span>6月月考英语</span></div>
-				  <div class="ui-block-b" style="text-align: right;">
-				  	<span class="ui-li-count">140</span>
-				  	<a href="#detailedTranscriptsDetail">a</a>&nbsp;
-				  	<a href="#detailedTranscriptsDetail">b</a>
-				  </div>
-				</div>
-		    </li>
+		  <li>
+			<div class="ui-grid-b">
+			  <div class="ui-block-a"><span class="number">1</span><span class="score">5</span></div>
+			  <div class="ui-block-b"><span class="number">2</span><span class="score">4</span></div>
+			  <div class="ui-block-c"><span class="number">3</span><span class="score">5</span></div>
+			</div>
+		  </li>
+		  <li>
+			<div class="ui-grid-b">
+			  <div class="ui-block-a"><span class="number">4</span><span class="score">13</span></div>
+			  <div class="ui-block-b"><span class="number">4.1</span><span class="score">3</span></div>
+			  <div class="ui-block-c"><span class="number">4.2</span><span class="score">7</span></div>
+			</div>
+		  </li>
+		  <li>
+			<div class="ui-grid-b">
+			  <div class="ui-block-a"><span class="number">20.3</span><span class="score">3</span></div>
+			</div>
+		  </li>
 		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>
+
 <div data-role="page" id="detailedTranscriptsDetail" class="hide">
 	<jsp:include page="/tpl/header.jsp" flush="true">
 		<jsp:param name="title" value="详细成绩单"/>
 	</jsp:include>
 	<div class="content">
-		<div class="ui-grid-b">
-		  <div class="ui-block-a"><span>1 : 5</span></div>
-		  <div class="ui-block-b"><span>2 : 4</span></div>
-		  <div class="ui-block-c"><span>3 : 5</span></div>
-		  <div class="ui-block-a"><span>4 : 13</span></div>
-		  <div class="ui-block-b"><span>4.1 : 3</span></div>
-		  <div class="ui-block-c"><span>4.2 : 7</span></div>
-		  <div class="ui-block-a"><span>4.3 : 3</span></div>
-		</div>
+		<ul data-role="listview" class="listview">
+		  <li><span class="label">学科</span><span class="text">语文</span></li>
+		  <li><span class="label">个人得分</span><span class="text">106.00</span></li>
+		  <li><span class="label">年级排名</span><span class="text">9</span></li>
+		  <li><span class="label">班级排名</span><span class="text">9</span></li>
+		  <li><span class="label">年级均分</span><span class="text">93.24</span></li>
+		  <li><span class="label">班级均分</span><span class="text">93.24</span></li>
+		</ul>
+		<a href="#detailedTranscriptsDetailKP" data-role="button" data-transition="slideup">知识点</a>
+		<a href="#detailedTranscriptsDetailPower" data-role="button" data-transition="slideup">能力层次</a>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>
+<div data-role="page" id="detailedTranscriptsDetailKP" class="hide">
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="知识点"/>
+	</jsp:include>
+	<div class="content">
+		<ul data-role="listview" class="listview none-inline">
+		  <li data-role="list-divider">9．阅读科技作品，注意领会作品中所体现的科学精神和科学思想方法。</li>
+		  <li><span class="label">个人得分</span><span class="text">19.00</span></li>
+		  <li><span class="label">年级排名</span><span class="text">4</span></li>
+		  <li><span class="label">班级排名</span><span class="text">4</span></li>
+		  <li><span class="label">年级均分</span><span class="text">12.58</span></li>
+		  <li><span class="label">班级均分</span><span class="text">12.58</span></li>
+		  <li data-role="list-divider">12．浅易文言文，能借助注释和工具书理解基本内容。背诵优秀诗文80篇。</li>
+		  <li><span class="label">个人得分</span><span class="text">19.00</span></li>
+		  <li><span class="label">年级排名</span><span class="text">19</span></li>
+		  <li><span class="label">班级排名</span><span class="text">19</span></li>
+		  <li><span class="label">年级均分</span><span class="text">17.40</span></li>
+		  <li><span class="label">班级均分</span><span class="text">17.40</span></li>
+		</ul>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>
+<div data-role="page" id="detailedTranscriptsDetailPower" class="hide">
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="能力层次"/>
+	</jsp:include>
+	<div class="content">
+		<ul data-role="listview" class="listview none-inline">
+		  <li data-role="list-divider">理解</li>
+		  <li><span class="label">个人得分</span><span class="text">65.00</span></li>
+		  <li><span class="label">年级排名</span><span class="text">6</span></li>
+		  <li><span class="label">班级排名</span><span class="text">6</span></li>
+		  <li><span class="label">年级均分</span><span class="text">55.20</span></li>
+		  <li><span class="label">班级均分</span><span class="text">55.20</span></li>
+		  <li data-role="list-divider">识记</li>
+		  <li><span class="label">个人得分</span><span class="text">28.00</span></li>
+		  <li><span class="label">年级排名</span><span class="text">17</span></li>
+		  <li><span class="label">班级排名</span><span class="text">17</span></li>
+		  <li><span class="label">年级均分</span><span class="text">25.67</span></li>
+		  <li><span class="label">班级均分</span><span class="text">25.67</span></li>
+		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

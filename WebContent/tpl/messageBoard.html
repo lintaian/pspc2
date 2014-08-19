@@ -4,6 +4,20 @@
 		<jsp:param name="title" value="留言板"/>
 	</jsp:include>
 	<div class="content">
+		<form>
+		  <fieldset data-role="fieldcontain">
+		    <label for="teacher">选择教师:</label>
+		    <select name="teacher" id="teacher">
+		      <option value="1">张三</option>
+		      <option value="2">李四</option>
+		      <option value="3">王五</option>
+		    </select>
+		    <label for="info" style="margin-top: 5px;">留言内容:</label>
+    		<textarea name="info" id="info"  style="margin-bottom: 5px;"></textarea>
+    		<input type="button" value="提交">
+		  </fieldset>
+		</form>
+		
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

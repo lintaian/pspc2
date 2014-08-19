@@ -4,7 +4,17 @@
 		<jsp:param name="title" value="修改密码"/>
 	</jsp:include>
 	<div class="content">
-		
+		<div style="margin-top: 100px;">
+			<form>
+			  <label for="name">旧  密  码:</label>
+			  <input type="password" name="name" id="name">
+			  <label for="pwd">新  密  码:</label>
+			  <input type="password" name="pwd" id="pwd">
+			  <label for="pwd2">重复新密码:</label>
+			  <input type="password" name="pwd2" id="pwd2">
+			  <input type="button" id="loginCommit" value="确认修改">
+			</form>
+		</div>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

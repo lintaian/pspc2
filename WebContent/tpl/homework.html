@@ -4,6 +4,28 @@
 		<jsp:param name="title" value="作业内容"/>
 	</jsp:include>
 	<div class="content">
+		<ul data-role="listview">
+		  <li><a href="#homeworkDetail" data-transition="slide">8月18号家庭作业</a></li>
+		  <li><a href="#homeworkDetail" data-transition="slide">8月18号课后练习</a></li>
+		  <li><a href="#homeworkDetail" data-transition="slide">8月17号家庭作业</a></li>
+		  <li><a href="#homeworkDetail" data-transition="slide">8月17号课后练习</a></li>
+		</ul>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>
+<div data-role="page" id="homeworkDetail" class="hide">
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="作业内容"/>
+	</jsp:include>
+	<div class="content">
+		<ul data-role="listview" class="none-inline">
+		  <li data-role="list-divider" class="list-divider">第一题</li>
+		  <li>小明今年5岁，小红今年3岁，小明比小红大多少岁？</li>
+		  <li>答案: 5-3=2</li>
+		  <li data-role="list-divider" class="list-divider">第二题</li>
+		  <li><img class="img" src="img/question1.png"/></li>
+		  <li><img class="img" src="img/answer1.png"></li>
+		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

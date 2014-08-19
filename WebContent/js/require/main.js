@@ -7,7 +7,8 @@ require.config({
 		'echarts/chart/bar': 'lib/echarts',
     	'echarts/chart/line': 'lib/echarts',
     	'echarts/chart/pie': 'lib/echarts',
-    	cMain: 'custom/main'
+    	cMain: 'custom/main',
+    	util: 'custom/util'
 	},
 	shim: {
 		login2: {deps: ['jquery']},
@@ -15,6 +16,6 @@ require.config({
 	}
 });
 require(['jquery', 'jqueryMobile', 'echarts', 'echarts/chart/bar', 
-         'echarts/chart/line', 'echarts/chart/pie', 'cMain'], function($) {
+         'echarts/chart/line', 'echarts/chart/pie', 'cMain', 'util'], function($) {
 	$.mobile.changePage('#mainPage');
 });

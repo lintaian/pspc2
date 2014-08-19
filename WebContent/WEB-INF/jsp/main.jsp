@@ -23,7 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@include file="/tpl/index.html" %>
 	<%@include file="/tpl/detailedTranscripts.html" %>
 	<%@include file="/tpl/homework.html" %>
-	<%@include file="/tpl/scoreChart.html" %>
 	<%@include file="/tpl/transverse.html" %>
 	<%@include file="/tpl/longitudinal.html" %>
 	<%@include file="/tpl/wrongBook.html" %>

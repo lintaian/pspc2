@@ -1,7 +1,7 @@
 package com.lps.pspc.service.interfaces;
 
-import rpc.Student;
+import com.lepeisheng.flipped.rpc.ParentInfo;
 
 public interface UserServiceIF {
-	public Student login(String name, String pwd) throws Exception;
+	public ParentInfo login(String name, String pwd) throws Exception;
 }

@@ -4,6 +4,32 @@
 		<jsp:param name="title" value="个人横向"/>
 	</jsp:include>
 	<div class="content">
+		<ul data-role="listview">
+		    <li data-role="list-divider"><a href="#transverseDetail" data-transition="slide">6月月考<span class="ui-li-count">398</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">语文<span class="ui-li-count">115</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">数学<span class="ui-li-count">143</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">英语<span class="ui-li-count">140</span></a></li>
+		    <li data-role="list-divider"><a href="#transverseDetail" data-transition="slide">期末考试<span class="ui-li-count">380</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">语文<span class="ui-li-count">110</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">数学<span class="ui-li-count">140</span></a></li>
+		    <li><a href="#transverseDetail" data-transition="slide">英语<span class="ui-li-count">130</span></a></li>
+		</ul>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>
+<div data-role="page" id="transverseDetail" class="hide">
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="个人横向"/>
+	</jsp:include>
+	<div class="content">
+		<ul data-role="listview" class="listview none-inline">
+		  <li data-role="list-divider">总分</li>
+		  <li><span class="label">个人得分</span><span class="text">390.00</span></li>
+		  <li><span class="label">班级均分</span><span class="text">367.00</span></li>
+		  <li><span class="label">年级均分</span><span class="text">383.00</span></li>
+		  <li><span class="label">地区均分</span><span class="text">352.00</span></li>
+		</ul>
+		<div id="transverseScoreReport"></div>
 	</div>
 	<%@include file="/tpl/footer.html"%>
 </div>

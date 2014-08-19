@@ -3,9 +3,10 @@ package com.lps.pspc.module;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.nutz.ioc.annotation.InjectName;
-import org.nutz.ioc.loader.annotation.Inject;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.adaptor.JsonAdaptor;
 import org.nutz.mvc.annotation.AdaptBy;
@@ -15,17 +16,17 @@ import org.nutz.mvc.annotation.Fail;
 import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.POST;
+
+import com.lepeisheng.flipped.client.RpcHelper;
+import com.lepeisheng.flipped.rpc.ParentInfo;
 import com.lps.pspc.filter.LoginFilter;
-import com.lps.pspc.service.interfaces.UserServiceIF;
 
 @IocBean
 @InjectName
 @At("/")
 @Fail("json")
 public class MyMainModule {
-	@Inject
-	private UserServiceIF userService;
-	
+
 	@At("login")
 	@AdaptBy(type = JsonAdaptor.class)
 	@Ok("json")
@@ -36,9 +37,7 @@ public class MyMainModule {
 		String name = body.containsKey("username") ? body.get("username") : "";
 		String password = body.containsKey("password") ? body.get("password") : "";
 		if (name != null && !"".equals(name) && password != null && !"".equals(password)) {
-			userService.login(name, password);
-			Map<String, Object> user = new HashMap<String, Object>();
-			user.put("name", name);
+			ParentInfo user = RpcHelper.parentLogin(name, password);
 			if (user != null) {
 				re.put("status", true);
 				req.getSession().setAttribute("user", user);
