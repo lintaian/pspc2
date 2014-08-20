@@ -4,6 +4,7 @@ define([ 'jquery', 'echarts' ], function(jquery, echarts) {
 
 		};
 		Util.chartIds = [];
+		Util.scopes = {};
 		Util.resizeChart = function() {
 //			alert(window.orientation);
 //			for ( var i=0; i < Util.chartIds.length; i++) {

@@ -10,16 +10,20 @@ import javax.servlet.http.HttpSession;
 import org.nutz.ioc.annotation.InjectName;
 import org.nutz.ioc.loader.annotation.IocBean;
 import org.nutz.mvc.annotation.At;
+import org.nutz.mvc.annotation.By;
+import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.GET;
 import org.nutz.mvc.annotation.Ok;
 
 import com.lepeisheng.flipped.client.RpcHelper;
 import com.lepeisheng.flipped.rpc.LearningProcess;
 import com.lepeisheng.flipped.rpc.ParentInfo;
+import com.lps.pspc.filter.LoginFilter;
 
 @IocBean
 @InjectName
-@At("/")
+@At("/leaner/")
+@Filters({@By(type=LoginFilter.class)})
 public class LeanerModule {
 	
 	@At("status")
@@ -35,6 +39,6 @@ public class LeanerModule {
 		} else {
 			timestamp = session.getAttribute("leanerStatuTimestamp").toString();
 		}
-		return RpcHelper.getLearningProcess(parentInfo.getStudentUid(), timestamp, 5);
+		return RpcHelper.getLearningProcess(parentInfo.getStudentUid(), timestamp, 0);
 	}
 }

@@ -43,7 +43,6 @@ define(['jquery', 'echarts'], function($, echarts) {
 		}), 'longitudinalReport', 'longitudinalReportTotal');
 	});
 	$(window).on("orientationchange", function (event) {
-		console.log(Util.chartIds);
 		Util.resizeChart();
 	});
 });

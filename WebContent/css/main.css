@@ -67,3 +67,7 @@
 .longitudinal-ul li {
 	margin-right: -16px!important;
 }
+/** 聊天 **/
+li.send {
+	text-align: right;
+}

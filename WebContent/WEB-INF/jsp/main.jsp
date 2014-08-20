@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE html>
-<html>
+<html id="ng-app">
 <head>
 	<base href="<%=basePath%>">
 	<meta charset="utf-8">
@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.3.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body data-ng-controller="mainCtrl">
 	<%@include file="/tpl/index.html" %>
 	<%@include file="/tpl/detailedTranscripts.html" %>
 	<%@include file="/tpl/homework.html" %>

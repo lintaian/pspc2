@@ -72,4 +72,9 @@ public class MyMainModule {
 	public void logout(HttpServletRequest req) throws IOException {
 		req.getSession().invalidate();
 	}
+	@At("session")
+	@Ok("json")
+	public Object getSession(String name, HttpServletRequest req) {
+		return req.getSession().getAttribute(name);
+	}
 }
