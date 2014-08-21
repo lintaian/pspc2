@@ -1,7 +1,5 @@
 package com.lps.pspc.module;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,11 +32,15 @@ public class LeanerModule {
 		ParentInfo parentInfo = (ParentInfo) session.getAttribute("user");
 		String timestamp = "";
 		if (session.getAttribute("leanerStatuTimestamp") == null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-			timestamp = sdf.format(new Date());
+			timestamp = session.getAttribute("loginTime").toString();
 		} else {
 			timestamp = session.getAttribute("leanerStatuTimestamp").toString();
 		}
-		return RpcHelper.getLearningProcess(parentInfo.getStudentUid(), timestamp, 0);
+		List<LearningProcess> processes = RpcHelper.getLearningProcess(parentInfo.getStudentUid(), timestamp, 0);
+		if (!processes.isEmpty()) {
+			timestamp = processes.get(processes.size() - 1).getTimestamp();
+			session.setAttribute("leanerStatuTimestamp", timestamp);
+		}
+		return processes;
 	}
 }

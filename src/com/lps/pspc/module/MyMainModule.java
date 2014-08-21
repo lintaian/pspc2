@@ -1,6 +1,8 @@
 package com.lps.pspc.module;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,6 +43,9 @@ public class MyMainModule {
 			if (user != null) {
 				re.put("status", true);
 				req.getSession().setAttribute("user", user);
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String timestamp = sdf.format(new Date());
+				req.getSession().setAttribute("loginTime", timestamp);
 			} else {
 				re.put("msg", "用户名或密码错误!");
 			}
@@ -76,5 +81,10 @@ public class MyMainModule {
 	@Ok("json")
 	public Object getSession(String name, HttpServletRequest req) {
 		return req.getSession().getAttribute(name);
+	}
+	@At("application")
+	@Ok("json")
+	public Object getApplication(String name, HttpServletRequest req) {
+		return req.getSession().getServletContext().getAttribute(name);
 	}
 }

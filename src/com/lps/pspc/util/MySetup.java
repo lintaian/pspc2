@@ -1,6 +1,8 @@
 package com.lps.pspc.util;
 
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.nutz.mvc.NutConfig;
@@ -20,6 +22,10 @@ public class MySetup implements Setup {
 	        RpcHelper.host = config.getProperty("remote.ip");
 	        RpcHelper.port = Integer.parseInt(config.getProperty("remote.port"));
 	        RpcHelper.timeout = Integer.parseInt(config.getProperty("remote.timeout"));
+	        Map<String, Object> pollParam = new HashMap<String, Object>();
+	        pollParam.put("chat", config.getProperty("poll.chat"));
+	        pollParam.put("status", config.getProperty("poll.status"));
+	        arg0.getServletContext().setAttribute("pollParam", pollParam);
 	      } finally {
 	        stream.close();
 	      }

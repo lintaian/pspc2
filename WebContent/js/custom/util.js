@@ -83,7 +83,10 @@ define([ 'jquery', 'echarts' ], function(jquery, echarts) {
 			 var pageheight = $(window).height();
 			 $('#' + ele).height(pageheight * hRate);
 			 $('#' + ele).width(pagewidth * wRate);
-		 }
+		 };
+		Util.getPageHeight = function() {
+			return $(window).height();
+		}
 		Util.initChart = function(option, id, cloneId) {
 			Util.resizeDiv(id);
 			if(arguments.length == 3) {

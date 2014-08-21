@@ -10,6 +10,7 @@ require.config({
     	'echarts/chart/line': 'lib/echarts',
     	'echarts/chart/pie': 'lib/echarts',
     	util: 'custom/util',
+    	scrollIntoView: 'custom/scrollIntoView',
     	cMain: 'custom/main',
     	resource: 'custom/resource',
     	app: 'custom/app'
@@ -24,7 +25,7 @@ require.config({
 });
 require(['jquery', 'angular', 'angularResource', 'echarts', 'echarts/chart/bar', 
          'echarts/chart/line', 'echarts/chart/pie', 'jqueryMobile', 
-         'cMain', 'util', 'resource', 'app'], function($, angular) {
+         'cMain', 'util', 'scrollIntoView', 'resource', 'app'], function($, angular) {
 	angular.bootstrap(document, ['app']);
 	$.mobile.changePage('#mainPage', {transition: 'slide'});
 });

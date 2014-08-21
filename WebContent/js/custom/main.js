@@ -1,8 +1,8 @@
 define(['jquery', 'echarts'], function($, echarts) {
 	$(document).on('pageinit', '#mainPage', function() {
-		$('[data-custom="logout"]').on('tap', function() {
+		/*$('[data-custom="logout"]').on('tap', function() {
 			$(this).next().toggle();
-		});
+		});*/
 	});
 	$(document).on('pageinit', '#transverseDetail', function() {
 		Util.initChart(Util.getOption({
@@ -41,6 +41,9 @@ define(['jquery', 'echarts'], function($, echarts) {
 				data: [120, 123]
 			}]
 		}), 'longitudinalReport', 'longitudinalReportTotal');
+	});
+	$(document).on('pagebeforeshow', '#messageBoardChat', function() {
+		$('#chatContent').css({'max-height': Util.getPageHeight()-155});
 	});
 	$(window).on("orientationchange", function (event) {
 		Util.resizeChart();

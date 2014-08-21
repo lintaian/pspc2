@@ -19,9 +19,6 @@ import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.GET;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.POST;
-
-import sun.nio.cs.MS1250;
-
 import com.lepeisheng.flipped.client.RpcHelper;
 import com.lepeisheng.flipped.rpc.Message;
 import com.lepeisheng.flipped.rpc.ParentInfo;
@@ -36,18 +33,20 @@ public class MessageModule {
 	@At("/?")
 	@GET
 	@Ok("json")
-	public List<Message> getMsg(String tid, HttpServletRequest req) {
+	public List<Message> getMsg(String tid, String timestamp, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		ParentInfo parentInfo = (ParentInfo) session.getAttribute("user");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String timestamp = sdf.format(new Date().getTime() - 86400000);
+		if ("".equals(timestamp) || timestamp == null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			timestamp = sdf.format(new Date().getTime() - 86400000 * 365);
+		}
 		return RpcHelper.parentGetMessage(0, parentInfo.getParentUid(), tid, timestamp, 0);
 	}
 	@At("")
 	@GET
 	@Ok("json")
-	public List<Message> getMsg(HttpServletRequest req) {
-		return getMsg("", req);
+	public List<Message> getMsg(String timestamp, HttpServletRequest req) {
+		return getMsg("", timestamp, req);
 	}
 	@At("")
 	@POST

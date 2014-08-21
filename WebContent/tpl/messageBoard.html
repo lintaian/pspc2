@@ -9,7 +9,8 @@
 		  <li><a href="javascript:void(0)" data-ng-click="toChat('教师群','')">教师群</a></li>
 		  <li data-role="list-divider">教师</li>
 		  <li data-ng-repeat="t in teachers">
-		  	<a href="javascript:void(0)" data-ng-bind="t.name" data-ng-click="toChat(t.name, t.uid)"></a>
+		  	<a href="javascript:void(0)" data-ng-bind="t.name" data-ng-click="toChat(t.name, t.uid)"
+		  		class="ui-btn ui-btn-icon-right ui-icon-carat-r"></a>
 		  </li>
 		</ul>
 	</div>
@@ -17,28 +18,30 @@
 </div>
 <div data-role="page" id="messageBoardChat" class="hide" data-ng-controller="msgChatCtrl">
 	<jsp:include page="/tpl/header.jsp" flush="true">
-		<jsp:param name="title" value="留言板-"/>
+		<jsp:param name="title" value="留言板"/>
 	</jsp:include>
 	<div class="content">
-		<ul data-role="listview">
-		  <li data-ng-repeat="m in msg.list" data-ng-class="{send: m.senderUid == user.parentUid}">
+		<ul data-role="listview" id="chatContent" class="chatContent">
+		  <li data-ng-repeat="m in msg.list" class="msg" 
+		  	data-ng-class="{sender: m.senderUid == user.parentUid, other: m.senderUid != user.parentUid}">
 		  	<p data-ng-if="m.senderUid == user.parentUid">
-		  		<span data-ng-bind="m.timestamp"></span>
-			  	<span data-ng-bind="m.senderName"></span><br/>
+		  		<span data-ng-bind="m.timestamp" class="time"></span>
+			  	<span data-ng-bind="m.senderName" class="name"></span><br/>
 		  	</p>
 		  	<p data-ng-if="m.senderUid != user.parentUid">
-			  	<span data-ng-bind="m.senderName"></span> 
-			  	<span data-ng-bind="m.timestamp"></span><br/>
+			  	<span data-ng-bind="m.senderName" class="name"></span> 
+			  	<span data-ng-bind="m.timestamp" class="time"></span><br/>
 		  	</p>
-		  	<span data-ng-bind="m.info"></span>
+	  		<div data-ng-bind="m.info" class="info" 
+	  			data-ng-class="{floatRight: m.senderUid == user.parentUid, floatLeft: m.senderUid != user.parentUid}"></div>
 		  </li>
 		</ul>
-		<form>
+		<form class="msgSend">
 		  <fieldset data-role="fieldcontain">
     		<textarea name="info" id="info"  style="margin-bottom: 5px;" data-ng-model="msg.text"></textarea>
     		<input type="button" value="发送" data-ng-click="msg.send()">
 		  </fieldset>
 		</form>
 	</div>
-	<%@include file="/tpl/footer.html"%>
+	<!-- <%@include file="/tpl/footer.html"%> -->
 </div>

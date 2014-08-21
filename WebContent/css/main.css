@@ -2,6 +2,9 @@
 .hide {
 	display: none;
 }
+.ng-hide {
+	display: none;
+}
 .ui-grid-a .left {
 	width: 60%;
 	overflow: hidden;
@@ -68,6 +71,51 @@
 	margin-right: -16px!important;
 }
 /** 聊天 **/
-li.send {
+.chatContent {
+	overflow-x: hidden;
+	padding-bottom: -20px;
+	overflow-y: auto;
+}
+li.sender {
+	float: right;
 	text-align: right;
+}
+li.other {
+	float: left;
+	text-align: left;
+}
+li.msg {
+	width: 100%;
+	margin: 0 10px;;
+}
+.name {
+	font-size: 14px;
+	font-weight: bold;
+	font-style: normal;
+	color: rgb(24, 113, 209);
+}
+.time {
+	font-size: 12px;
+	color: gray;
+}
+.info {
+	border: 1px solid rgb(188, 191, 196);
+	border-radius: 8px;
+	margin: 0 10px;
+	background-color: rgb(227, 233, 240);
+	padding: 5px;
+	text-align: left;
+	max-width: 95%;
+}
+.floatRight {
+	float: right;
+}
+.floatLeft {
+	float: left;
+}
+.msgSend {
+	position: fixed;
+	bottom: 0px;
+	margin-bottom: -20px;
+	width: 100%;
 }

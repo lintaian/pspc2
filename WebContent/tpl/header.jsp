@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
 <div data-role="header" data-position="fixed" data-theme="b">
-	<a href="#mainPage" data-role="button" data-icon="home" data-transition="slidedown">首页</a>
+	<a href="#mainPage" data-role="button" data-icon="home" data-transition="slidedown"
+		data-ng-show="'<%= request.getParameter("title")%>'!='主页'">首页</a>
   	<h1 data-ng-show="msg == null"><%= request.getParameter("title")%></h1>
   	<h1 data-ng-show="msg != null" data-ng-bind="msg.name"></h1>
-  	<a href="javascript:void(0)" data-role="button" data-icon="gear" data-iconpos="notext" data-custom="logout"></a>
-	<div style="position: relative;" class="hide">
+  	<a href="javascript:void(0)" data-role="button" data-icon="gear" data-iconpos="notext" data-custom="logout"
+  		data-ng-click="tool.show=!tool.show"></a>
+	<div style="position: relative;" class="ng-hide" data-ng-show="tool.show">
 		<div style="position: absolute;right: 0px;top: -3px;">
 			<ul data-role="listview">
 			  <li><a href="logout" data-role="button" 

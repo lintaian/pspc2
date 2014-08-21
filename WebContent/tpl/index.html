@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
 <div data-role="page" id="mainPage" class="hide">
-	<div data-role="header" data-position="fixed" data-theme="b">
+	<!-- <div data-role="header" data-position="fixed" data-theme="b">
 		<h1>主页</h1>
 		<a href="javascript:void(0)" data-role="button" class="ui-btn-right" 
 			data-icon="gear" data-iconpos="notext" data-custom="logout"></a>
@@ -14,7 +14,10 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> -->
+	<jsp:include page="/tpl/header.jsp" flush="true">
+		<jsp:param name="title" value="主页"/>
+	</jsp:include>
 	<div class="content">
 		<ul data-role="listview">
 			<li><a href="#detailedTranscripts" data-transition="slide">详细成绩单</a></li>
@@ -24,7 +27,8 @@
 			<li><a href="#wrongBook" data-transition="slide">错题本</a></li>
 			<li><a href="javascript:void(0)" 
 				data-ng-click="changePage('#messageBoard', 'slide', 'msgCtrl')">留言板</a></li>
-			<li><a href="#studentStatus" data-transition="slide">学生状态</a></li>
+			<li><a href="javascript:void(0)" 
+				data-ng-click="changePage('#studentStatus', 'slide', 'statusCtrl')">学生状态</a></li>
 		</ul>
 	</div>
 	<%@include file="/tpl/footer.html"%>
