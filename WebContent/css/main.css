@@ -54,16 +54,20 @@
 	max-height: 100%!important;
 	max-width: 100%!important;
 }
-.longitudinal-ul .ui-checkbox {
+.longitudinal-ul .ui-checkbox,
+.longitudinal-ul .ui-radio {
 	margin: -11px -16px -11px 0!important;
 }
-.longitudinal-ul .ui-li-divider .ui-checkbox {
+.longitudinal-ul .ui-li-divider .ui-checkbox,
+.longitudinal-ul .ui-li-divider .ui-radio {
 	margin: -7px -16px!important;
 }
-.longitudinal-ul .ui-li-divider .ui-checkbox label{
+.longitudinal-ul .ui-li-divider .ui-checkbox label,
+.longitudinal-ul .ui-li-divider .ui-radio label {
 	background-color: rgb(233,233,233);
 }
-.longitudinal-ul .ui-checkbox label{
+.longitudinal-ul .ui-checkbox label,
+.longitudinal-ul .ui-radio label {
 	background-color: rgb(255,255,255);
 	border: none;
 }

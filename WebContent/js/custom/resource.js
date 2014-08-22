@@ -3,7 +3,8 @@ define(['angular'], function(angular) {
 		baseUrl: ''
 	}).factory('Msg', ['$resource', 'cfg', function($resource, cfg) {
 		return $resource(cfg.baseUrl + 'msg/:id',{},{
-			'getTeachers': {method: 'GET', url: cfg.baseUrl + 'msg/teachers', isArray: true}
+			'getTeachers': {method: 'GET', url: cfg.baseUrl + 'msg/teachers', isArray: true},
+			'save': {method: 'POST', url: cfg.baseUrl + 'msg/:id', isArray: true}
 		});
 	}]).factory('Common', ['$resource', 'cfg', function($resource, cfg) {
 		return $resource(cfg.baseUrl + 'batch/:id',{},{
@@ -13,6 +14,10 @@ define(['angular'], function(angular) {
 	}]).factory('Leaner', ['$resource', 'cfg', function($resource, cfg) {
 		return $resource(cfg.baseUrl + 'leaner/:id',{},{
 			'getStatus': {method: 'GET', url: cfg.baseUrl + 'leaner/status', isArray: true}
+		});
+	}]).factory('Questionnaire', ['$resource', 'cfg', function($resource, cfg) {
+		return $resource(cfg.baseUrl + 'questionnaire/:id',{},{
+//			'getStatus': {method: 'GET', url: cfg.baseUrl + 'leaner/status', isArray: true}
 		});
 	}]);
 });

@@ -56,14 +56,7 @@ public class MessageModule {
 		HttpSession session = req.getSession();
 		ParentInfo parentInfo = (ParentInfo) session.getAttribute("user");
 		if (RpcHelper.parentSendMessage(4, parentInfo.getParentUid(), body.get("tid"), body.get("msg"))) {
-			Message message = new Message();
-			message.setInfo(body.get("msg"));
-			message.setSenderName(parentInfo.getParentName());
-			message.setSenderUid(parentInfo.getParentUid());
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			String timestamp = sdf.format(new Date().getTime());
-			message.setTimestamp(timestamp);
-			return message;
+			return getMsg(body.get("tid"), body.get("timestamp"), req);
 		}
 		return null;
 	}

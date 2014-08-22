@@ -65,8 +65,12 @@ public class MyMainModule {
 	}
 	@At("main")
 	@Ok("jsp:jsp.main")
+	@Fail("jsp:jsp.questionnaire")
 	@Filters({@By(type=LoginFilter.class)})
-	public void main() {
+	public void main() throws Exception {
+		/*if (true) {
+			throw new Exception();
+		}*/
 	}
 	@At("")
 	@Ok("redirect:/main")

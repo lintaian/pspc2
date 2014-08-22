@@ -58,15 +58,16 @@ define(['angular', 'jquery'], function(angular, $) {
 			timestamp: '',
 			send: function() {
 				if (this.text != '') {
-					Msg.save({msg: this.text, tid: this.tid}, function(data) {
+					Msg.save({msg: this.text, tid: this.tid, timestamp: this.timestamp}, function(data) {
 						if (data) {
+							$scope.msg.list = $scope.msg.list.concat(data);
 							$scope.msg.text = '';
-							$scope.msg.list.push({
+							/*$scope.msg.list.push({
 								senderName: 'test',
 								senderUid: 'dd',
 								info: '呵呵',
 								timestamp: data.timestamp
-							});
+							});*/
 							$timeout(function() {
 								$('#chatContent').scrollIntoView('li:last');
 							});
