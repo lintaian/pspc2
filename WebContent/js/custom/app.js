@@ -40,13 +40,13 @@ define(['angular', 'jquery'], function(angular, $) {
 		$scope.init = function(id, name) {
 			$scope.msg.tid = id;
 			$scope.msg.name = name;
-			$scope.msg.get();
+			$scope.msg.get(true);
+			$scope.poll != null ? $interval.cancel($scope.poll) : '';
 			$scope.poll = $interval(function() {
 				if ($('#messageBoardChat').is(':visible')) {
 					$scope.msg.get();
 				} else {
 					$interval.cancel($scope.poll);
-					console.log('stoped');
 				}
 			}, $parent.pollParam.chat);
 		}
@@ -56,18 +56,15 @@ define(['angular', 'jquery'], function(angular, $) {
 			list: [],
 			text: '',
 			timestamp: '',
+			id: 0,
 			send: function() {
 				if (this.text != '') {
-					Msg.save({msg: this.text, tid: this.tid, timestamp: this.timestamp}, function(data) {
-						if (data) {
+					Msg.save({msg: this.text, tid: this.tid, timestamp: this.timestamp, id: this.id}, function(data) {
+						if (data.length > 0) {
 							$scope.msg.list = $scope.msg.list.concat(data);
 							$scope.msg.text = '';
-							/*$scope.msg.list.push({
-								senderName: 'test',
-								senderUid: 'dd',
-								info: '呵呵',
-								timestamp: data.timestamp
-							});*/
+							$scope.msg.timestamp = data[data.length - 1].timestamp;
+							$scope.msg.id = data[data.length - 1].id;
 							$timeout(function() {
 								$('#chatContent').scrollIntoView('li:last');
 							});
@@ -75,12 +72,16 @@ define(['angular', 'jquery'], function(angular, $) {
 					})
 				}
 			},
-			get: function() {
-				Msg.query({id: this.tid, timestamp: this.timestamp}, function(data) {
-					console.log(data);
+			get: function(first) {
+				if (first) {
+					this.timestamp = '';
+					this.id = 0;
+				}
+				Msg.query({tid: this.tid, timestamp: this.timestamp, id: this.id}, function(data) {
 					if (data.length > 0) {
 						$scope.msg.list = $scope.msg.list.concat(data);
 						$scope.msg.timestamp = data[data.length - 1].timestamp;
+						$scope.msg.id = data[data.length - 1].id;
 						$timeout(function() {
 							$('#chatContent').scrollIntoView('li:last');
 						});

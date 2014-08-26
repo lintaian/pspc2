@@ -33,20 +33,20 @@ public class MessageModule {
 	@At("/?")
 	@GET
 	@Ok("json")
-	public List<Message> getMsg(String tid, String timestamp, HttpServletRequest req) {
+	public List<Message> getMsg(String tid, String timestamp, int id, HttpServletRequest req) {
 		HttpSession session = req.getSession();
 		ParentInfo parentInfo = (ParentInfo) session.getAttribute("user");
 		if ("".equals(timestamp) || timestamp == null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			timestamp = sdf.format(new Date().getTime() - 86400000 * 365);
 		}
-		return RpcHelper.parentGetMessage(0, parentInfo.getParentUid(), tid, timestamp, 0);
+		return RpcHelper.parentGetMessage(0, parentInfo.getParentUid(), tid, timestamp, id, 0);
 	}
 	@At("")
 	@GET
 	@Ok("json")
-	public List<Message> getMsg(String timestamp, HttpServletRequest req) {
-		return getMsg("", timestamp, req);
+	public List<Message> getMsg(String timestamp, int id, HttpServletRequest req) {
+		return getMsg("", timestamp, id, req);
 	}
 	@At("")
 	@POST
@@ -56,7 +56,7 @@ public class MessageModule {
 		HttpSession session = req.getSession();
 		ParentInfo parentInfo = (ParentInfo) session.getAttribute("user");
 		if (RpcHelper.parentSendMessage(4, parentInfo.getParentUid(), body.get("tid"), body.get("msg"))) {
-			return getMsg(body.get("tid"), body.get("timestamp"), req);
+			return getMsg(body.get("tid"), body.get("timestamp"), Integer.parseInt(body.get("id")), req);
 		}
 		return null;
 	}
