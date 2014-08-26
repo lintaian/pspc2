@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import org.nutz.mvc.annotation.POST;
 
 import com.lepeisheng.flipped.client.RpcHelper;
 import com.lepeisheng.flipped.rpc.ParentInfo;
+import com.lepeisheng.flipped.rpc.SurveyRecord;
 import com.lps.pspc.filter.LoginFilter;
 
 @IocBean
@@ -65,12 +67,25 @@ public class MyMainModule {
 	}
 	@At("main")
 	@Ok("jsp:jsp.main")
-	@Fail("jsp:jsp.questionnaire")
+	@Fail("redirect:/survey")
 	@Filters({@By(type=LoginFilter.class)})
-	public void main() throws Exception {
-		/*if (true) {
+	public void main(HttpServletRequest req) throws Exception {
+		ParentInfo info = (ParentInfo) req.getSession().getAttribute("user");
+		List<SurveyRecord> list = RpcHelper.parentGetSurveyRecord(0, info.getParentUid(), "2014-08-01", 0);
+		if (list.size() > 0) {
 			throw new Exception();
-		}*/
+		}
+	}
+	@At("survey")
+	@Ok("jsp:jsp.questionnaire")
+	@Fail("redirect:/main")
+	@Filters({@By(type=LoginFilter.class)})
+	public void survey(HttpServletRequest req) throws Exception {
+		ParentInfo info = (ParentInfo) req.getSession().getAttribute("user");
+		List<SurveyRecord> list = RpcHelper.parentGetSurveyRecord(0, info.getParentUid(), "2014-08-01", 0);
+		if (list.size() == 0) {
+			throw new Exception();
+		}
 	}
 	@At("")
 	@Ok("redirect:/main")

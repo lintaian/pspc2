@@ -6,7 +6,8 @@ require.config({
 		angular: 'lib/angular',
 		angularResource: 'lib/angular-resource',
     	resource: 'custom/resource',
-    	app: 'custom/appQuestionnaire'
+    	app: 'custom/appQuestionnaire',
+    	mMain: 'custom/questionnaire'
 	},
 	shim: {
 		angular: {
@@ -17,7 +18,6 @@ require.config({
 	}
 });
 require(['jquery', 'angular', 'angularResource', 'jqueryMobile', 
-         'resource', 'app'], function($, angular) {
+         'resource', 'app', 'mMain'], function($, angular) {
 	angular.bootstrap(document, ['appQuestionnaire']);
-//	$.mobile.changePage('#mainPage', {transition: 'slide'});
 });
