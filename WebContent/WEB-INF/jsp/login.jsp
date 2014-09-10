@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.3.css">
 	<script src="js/lib/jquery.js"></script>
 	<script src="js/lib/jquery.mobile-1.4.3.js"></script>
+	<script src="js/lib/fastclick.js"></script>
 	<script src="js/custom/login.js"></script>
 </head>
 <body>
@@ -53,5 +54,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<span data-custom-dialog="text"></span>
 	    </div>
 	</div>
+	<script>
+	  	window.addEventListener('load', function () {
+  			FastClick.attach(document.body);
+  		}, false);
+	</script>
 </body>
 </html>

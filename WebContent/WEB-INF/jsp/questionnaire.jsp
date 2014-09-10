@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.css">
 	<link rel="stylesheet" href="css/jquery.mobile.theme-1.4.3.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script src="js/lib/fastclick.js"></script>
 </head>
 <body data-ng-controller="mainCtrl">
 	<div data-role="page" id="mainPage" class="hide">
@@ -67,5 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	<script data-main="js/require/questionnaire" src="js/lib/require.js"></script>
+	<script>
+	  	window.addEventListener('load', function () {
+  			FastClick.attach(document.body);
+  		}, false);
+	</script>
 </body>
 </html>

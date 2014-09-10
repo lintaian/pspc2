@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.nutz.ioc.annotation.InjectName;
 import org.nutz.ioc.loader.annotation.IocBean;
+import org.nutz.mvc.View;
 import org.nutz.mvc.adaptor.JsonAdaptor;
 import org.nutz.mvc.annotation.AdaptBy;
 import org.nutz.mvc.annotation.At;
@@ -19,6 +20,9 @@ import org.nutz.mvc.annotation.Fail;
 import org.nutz.mvc.annotation.Filters;
 import org.nutz.mvc.annotation.Ok;
 import org.nutz.mvc.annotation.POST;
+import org.nutz.mvc.view.JspView;
+import org.nutz.mvc.view.ServerRedirectView;
+import org.nutz.mvc.view.ViewWrapper;
 
 import com.lepeisheng.flipped.client.RpcHelper;
 import com.lepeisheng.flipped.rpc.ParentInfo;
@@ -66,15 +70,18 @@ public class MyMainModule {
 		}
 	}
 	@At("main")
-	@Ok("jsp:jsp.main")
-	@Fail("redirect:/survey")
 	@Filters({@By(type=LoginFilter.class)})
-	public void main(HttpServletRequest req) throws Exception {
-		ParentInfo info = (ParentInfo) req.getSession().getAttribute("user");
-		List<SurveyRecord> list = RpcHelper.parentGetSurveyRecord(0, info.getParentUid(), "2014-08-01", 0);
-		if (list.size() > 0) {
-			throw new Exception();
+	public View main(HttpServletRequest req) throws Exception {
+		if (req.getSession().getAttribute("user") == null) {
+			return new ViewWrapper(new ServerRedirectView("/login"), null);
+		} else {
+			ParentInfo info = (ParentInfo) req.getSession().getAttribute("user");
+			List<SurveyRecord> list = RpcHelper.parentGetSurveyRecord(0, info.getParentUid(), "2014-08-01", 0);
+			if (list.size() > 0) {
+				return new ViewWrapper(new ServerRedirectView("/survey"), null);
+			}
 		}
+		return new ViewWrapper(new JspView("jsp.main"), null);
 	}
 	@At("survey")
 	@Ok("jsp:jsp.questionnaire")
